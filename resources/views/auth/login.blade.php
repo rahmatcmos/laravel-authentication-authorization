@@ -2,8 +2,8 @@
 <form method="POST" action="/login">
 {!! csrf_field() !!}
 <div>
-  Email
-  <input type="email" name="email" value="{{ old('email') }}">
+  Username
+  <input type="text" name="username" value="{{ old('username') }}">
 </div>
 <div>
   Password
