@@ -1,5 +1,5 @@
 <!-- resources/views/auth/login.blade.php -->
-<form method="POST" action="/auth/login">
+<form method="POST" action="/login">
 {!! csrf_field() !!}
 <div>
   Email
