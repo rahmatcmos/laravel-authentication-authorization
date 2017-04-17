@@ -23,9 +23,7 @@ Route::get('/settings', ['middleware' => 'auth', function () {
     return "Menampilkan halaman settings user.";
 }]);
 
-Route::get('/home', ['middleware' => 'auth', function () {
-    return "Selamat datang " . Auth::user()->name;
-}]);
+Route::get('/home', ['middleware' => 'auth', 'uses' => 'HomeController@index']);
 
 // Login Routes...
 Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
