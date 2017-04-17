@@ -15,9 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function() {
+Route::get('/home', ['middleware' => 'auth', function () {
     return "Anda berhasil login";
-});
+}]);
+
+Route::get('/settings', ['middleware' => 'auth', function () {
+    return "Menampilkan halaman settings user.";
+}]);
 
 // Login Routes...
 Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
