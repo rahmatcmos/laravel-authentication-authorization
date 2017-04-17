@@ -22,9 +22,6 @@
 </div>
 <div>
   <button type="submit">Login</button>
-</div>
-<div>
-  <button type="submit">Login</button>
   <a href="/password/reset">Forgot password?</a>
 </div>
 </form>
