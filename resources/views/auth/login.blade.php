@@ -24,4 +24,7 @@
   <button type="submit">Login</button>
   <a href="/password/reset">Forgot password?</a>
 </div>
+<div>
+  <a href="/auth/twitter">Login dengan Twitter</a>
+</div>
 </form>
