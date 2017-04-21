@@ -23,6 +23,14 @@ Route::get('/settings', ['middleware' => 'auth', function () {
     return "Menampilkan halaman settings user.";
 }]);
 
+Route::get('event', ['middleware' => ['auth', 'role:organizer'], function() {
+    return "Berhasil mengakses halaman event";
+}]);
+
+Route::get('event-history', ['middleware' => ['auth', 'role:participant'], function() {
+    return "Berhasil mengakses history event.";
+}]);
+
 // Socialite
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
