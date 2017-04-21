@@ -7,7 +7,7 @@
   @endforeach
     </ul>
   @endif
-  
+
 {!! csrf_field() !!}
 <div>
   Name
@@ -28,6 +28,14 @@
 <div>
   Confirm Password
   <input type="password" name="password_confirmation">
+</div>
+<div>
+  Daftar sebagai
+  <select name="role">
+    <option value="" selected></option>
+    <option value="organizer">Panitia</option>
+    <option value="participant">Peserta</option>
+  </select>
 </div>
 <div>
   <button type="submit">Register</button>
