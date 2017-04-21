@@ -23,6 +23,10 @@ Route::get('/settings', ['middleware' => 'auth', function () {
     return "Menampilkan halaman settings user.";
 }]);
 
+// Socialite
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+
 Route::get('/home', ['middleware' => 'auth', 'uses' => 'HomeController@index']);
 
 // Login Routes...
