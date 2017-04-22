@@ -42,4 +42,11 @@ class HomeController extends Controller
         $this->authorize('join', $event);
         return "Anda sedang mengakses halaman join event " . $event->name;
     }
+
+    public function editOrganization($id)
+    {
+        $organization = \App\Organization::findOrFail($id);
+        $this->authorize('update', $organization);
+        return "Anda sedang mengakses halaman edit organisasi " . $organization->name;
+    }
 }
