@@ -19,4 +19,7 @@
 @can ('be-organizer')
   <a href="/edit-event/{{ $event->id }}">Edit Event</a>
 @endcan
+@can ('be-participant')
+  <a href="/join-event/{{ $event->id }}">Join Event</a>
+@endcan
 @endforeach
