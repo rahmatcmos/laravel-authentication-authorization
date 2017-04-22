@@ -15,8 +15,8 @@ class HasRole
      */
     public function handle($request, Closure $next, $role)
     {
-      if ($request->user()->role == $role) {
-        return $next($request);
+      if ($request->user()->can('be-'.$role)) {
+          return $next($request);
       }
       return redirect('home')->with('message', 'Anda tidak memiliki akses untuk halaman tersebut.');
     }
