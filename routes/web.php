@@ -29,6 +29,7 @@ Route::get('event-history', ['middleware' => ['auth', 'role:participant'], funct
     return "Berhasil mengakses history event.";
 }]);
 
+Route::get('join-event/{id}', 'HomeController@joinEvent');
 Route::get('edit-event/{id}', 'HomeController@editEvent');
 
 // Premium Access
