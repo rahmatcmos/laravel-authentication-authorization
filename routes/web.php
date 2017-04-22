@@ -29,6 +29,9 @@ Route::get('event-history', ['middleware' => ['auth', 'role:participant'], funct
     return "Berhasil mengakses history event.";
 }]);
 
+// Premium Access
+Route::get('premium', ['middleware' => ['auth'], 'uses' => 'HomeController@premium']);
+
 // Socialite
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
