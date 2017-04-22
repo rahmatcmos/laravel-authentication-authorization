@@ -23,3 +23,10 @@
   <a href="/join-event/{{ $event->id }}">Join Event</a>
 @endcan
 @endforeach
+
+<h3>Semua Organisasi</h3>
+@foreach (App\Organization::get() as $organization)
+  <p>Nama : {{ $organization->name }}</p>
+  <p>Admin : {{ $organization->admin->name }}</p>
+  <p><a href="/edit-organization/{{ $organization->id }}">Edit</a></p>
+@endforeach
