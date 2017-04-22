@@ -35,4 +35,11 @@ class HomeController extends Controller
         $this->authorize('edit-event', $event);
         return "Anda sedang mengakses halaman edit event " . $event->name;
     }
+
+    public function joinEvent($id)
+    {
+        $event = \App\Event::findOrFail($id);
+        $this->authorize('join-event', $event);
+        return "Anda sedang mengakses halaman join event " . $event->name;
+    }
 }
