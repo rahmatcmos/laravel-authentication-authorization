@@ -19,6 +19,15 @@ Route::get('/home', ['middleware' => 'auth', function () {
     return "Anda berhasil login";
 }]);
 
+Route::group(['prefix' => 'jwt'], function() {
+    Route::post('authenticate', 'Auth\LoginController@getToken');
+    Route::group(['middleware' => 'jwt.auth'], function() {
+      Route::get('users', function() {
+        return App\User::all();
+      });
+    });
+});
+
 Route::get('settings', ['middleware' => 'auth', 'uses' => 'HomeController@settings']);
 
 Route::get('event', ['middleware' => ['auth', 'role:organizer'], function() {
