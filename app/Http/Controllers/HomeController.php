@@ -28,4 +28,11 @@ class HomeController extends Controller
         $this->authorize('premium-access');
         return 'Halaman premium...';
     }
+
+    public function editEvent($id)
+    {
+        $event = \App\Event::findOrFail($id);
+        $this->authorize('edit-event', $event);
+        return "Anda sedang mengakses halaman edit event " . $event->name;
+    }
 }
