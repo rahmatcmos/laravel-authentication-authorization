@@ -38,6 +38,15 @@
   </select>
 </div>
 <div>
+  Tipe membership
+  <select name="membership">
+    <option value="" selected></option>
+    <option value="silver">Silver</option>
+    <option value="gold">Gold</option>
+    <option value="platinum">Platinum</option>
+  </select>
+</div>
+<div>
   <button type="submit">Register</button>
 </div>
 </form>
