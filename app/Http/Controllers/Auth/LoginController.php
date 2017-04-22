@@ -7,6 +7,9 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
 use App\User;
 use Auth;
+use Illuminate\Http\Request;
+use JWTAuth;
+use JWTException;
 
 class LoginController extends Controller
 {
@@ -72,5 +75,24 @@ class LoginController extends Controller
         } catch (\GuzzleHttp\Exception\ClientException $e) {
           return redirect('login');
         }
+    }
+
+    public function getToken(Request $request)
+    {
+      // mengambli credential dari client
+      $credentials = $request->only('email', 'password');
+
+      try {
+        // memvalidasi crendential yang dikirim client
+        if (! $token = JWTAuth::attempt($credentials)) {
+          return response()->json(['error' => 'invalid_credentials'], 401);
+        }
+      } catch (JWTException $e) {
+        // ada error
+        return response()->json(['error' => 'could_not_create_token'], 500);
+      }
+
+    // mengirim token ke client
+    return response()->json(compact('token'));
     }
 }
