@@ -22,4 +22,10 @@ class HomeController extends Controller
           return view('settings.participant');
         }
     }
+
+    public function premium()
+    {
+        $this->authorize('premium-access');
+        return 'Halaman premium...';
+    }
 }
