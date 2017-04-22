@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\User;
+use App\Organization;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class OrganizationPolicy
@@ -17,5 +18,10 @@ class OrganizationPolicy
     public function __construct()
     {
         //
+    }
+
+    public function update(User $user, Organization $organization)
+    {
+        return $user->id == $organization->admin_id;
     }
 }
