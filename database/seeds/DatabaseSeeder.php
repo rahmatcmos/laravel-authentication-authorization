@@ -66,6 +66,12 @@ class DatabaseSeeder extends Seeder
             'published' => 0
         ]);
 
+        // sample organization
+        $artisanBdg = App\Organization::create([
+            'name' => 'Artisan Bandung',
+            'admin_id' => $ucok->id
+        ]);
+
         Model::reguard();
     }
 }
