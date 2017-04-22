@@ -19,9 +19,7 @@ Route::get('/home', ['middleware' => 'auth', function () {
     return "Anda berhasil login";
 }]);
 
-Route::get('/settings', ['middleware' => 'auth', function () {
-    return "Menampilkan halaman settings user.";
-}]);
+Route::get('settings', ['middleware' => 'auth', 'uses' => 'HomeController@settings']);
 
 Route::get('event', ['middleware' => ['auth', 'role:organizer'], function() {
     return "Berhasil mengakses halaman event";
