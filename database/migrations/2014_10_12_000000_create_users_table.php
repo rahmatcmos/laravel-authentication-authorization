@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('provider_id')->unique()->nullable();
             $table->string('avatar');
             $table->boolean('suspended')->default(0);
+            $table->string('membership');
             $table->rememberToken();
             $table->timestamps();
         });
