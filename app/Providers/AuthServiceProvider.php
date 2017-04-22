@@ -14,6 +14,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'App\Model' => 'App\Policies\ModelPolicy',
+        \App\Event::class => \App\Policies\EventPolicy::class
     ];
 
     /**
@@ -35,14 +36,6 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('premium-access', function ($user) {
             return $user->membership == 'gold' || $user->membership == 'platinum';
-        });
-
-        Gate::define('edit-event', function($user, $event) {
-            return $user->id == $event->organizer_id;
-        });
-
-        Gate::define('join-event', function($user, $event) {
-            return $user->role == 'participant' && $event->published;
         });
     }
 }
