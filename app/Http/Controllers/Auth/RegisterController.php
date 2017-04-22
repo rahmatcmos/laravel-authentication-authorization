@@ -52,7 +52,8 @@ class RegisterController extends Controller
             'username' => 'required|max:255|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
-            'role' => 'in:organizer,participant'
+            'role' => 'in:organizer,participant',
+            'membership' => 'in:silver,gold,platinum'
         ]);
     }
 
@@ -69,7 +70,8 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'role' => isset($data['role']) ? $data['role'] : 'participant'
+            'role' => isset($data['role']) ? $data['role'] : 'participant',
+            'membership' => isset($data['membership']) ? $data['membership'] :'silver'
         ]);
     }
 }
