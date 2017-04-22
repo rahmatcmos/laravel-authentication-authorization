@@ -40,5 +40,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('edit-event', function($user, $event) {
             return $user->id == $event->organizer_id;
         });
+
+        Gate::define('join-event', function($user, $event) {
+            return $user->role == 'participant' && $event->published;
+        });
     }
 }
