@@ -36,5 +36,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('premium-access', function ($user) {
             return $user->membership == 'gold' || $user->membership == 'platinum';
         });
+
+        Gate::define('edit-event', function($user, $event) {
+            return $user->id == $event->organizer_id;
+        });
     }
 }
